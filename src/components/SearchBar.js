@@ -6,15 +6,30 @@ import React from 'react';
 // }
 class SearchBar extends React.Component{
   state = { term: '' };
-  // onInputChange(event){
-  //   console.log(event.target.value);  // Text that user added to input
+
+  // Makes a new function with the correct value of "this" - overwrites old function.
+  // constructor(){
+  //   super();
+  //  this.onFormSubmit=this.onFormSubmit.bind(this); 
   // }
-// Alternate callback for onChange - pass an arrow fn directly
-// (event)=>console.log(event.target.value)
+
+
+  // Incorrect value of "this" if callback is not an arrow function
+  // onFormSubmit(event){
+  //   event.preventDefault();
+  //   console.log(this.state.term)
+  // }
+
+  onFormSubmit=(event)=>{
+    event.preventDefault();
+    console.log(this.state.term)
+  }
+
   render(){
     return (
     <div className="ui segment">
-      <form className="ui form">
+      {/* {<form onSubmit={(event)=>this.onFormSubmit(event)}  */}
+      <form onSubmit={this.onFormSubmit} className="ui form">
         <div className="field">
           <label>Image Search</label>
           <input 
