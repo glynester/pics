@@ -5,21 +5,22 @@ import React from 'react';
 //   return <div>Search Bar</div>;
 // }
 class SearchBar extends React.Component{
-onInputChange(event){
-  console.log(event.target.value);  // Text that user added to input
-}
-
-onInputClick(event){
-  console.log("Input was clicked");
-}
-
+  state = { term: '' };
+  // onInputChange(event){
+  //   console.log(event.target.value);  // Text that user added to input
+  // }
+// Alternate callback for onChange - pass an arrow fn directly
+// (event)=>console.log(event.target.value)
   render(){
     return (
     <div className="ui segment">
       <form className="ui form">
         <div className="field">
           <label>Image Search</label>
-          <input type="text" onClick={this.onInputClick} onChange={this.onInputChange}/>
+          <input 
+            type="text" 
+            value={this.state.term} 
+            onChange={(e)=>this.setState({ term: e.target.value})}/>
         </div>
       </form>  
     </div>
