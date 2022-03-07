@@ -7,5 +7,5 @@
 /* grid-gap 0 pixels between each row --> */
 .image-list img {
   width: 250px;
-  grid-row-end: span 2;
+  /* grid-row-end: span 2; */
 }
